@@ -76,32 +76,6 @@ export const deleteEvent = (id) => {
 };
 
 /**
- * Get Events by Date
- *
- * @description Get all events by date
- *
- * @function getEventsByDate
- * @param {String} date
- * @returns {Array} array of all events with this start date
- */
-export const getEventsByDate = (date) => {
-  return events.filter((event) => event.startDate === date);
-};
-
-/**
- * Get Event by Id
- *
- * @description Get one event by ID
- *
- * @function getEventById
- * @param {String} id
- * @returns {Object} event object
- */
-export const getEventById = (id) => {
-  return events.filter((event) => event.id === id);
-};
-
-/**
  * Edit Event
  *
  * @description Get an event by ID and update data

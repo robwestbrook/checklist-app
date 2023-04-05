@@ -67,7 +67,7 @@
           </a>
         </div>
         <div class="px-3">
-          <a href="/" class="text-xl text-white"> LifeApp </a>
+          <a href="/" class="text-xl text-white"> Remember </a>
         </div>
       </div>
       <div>

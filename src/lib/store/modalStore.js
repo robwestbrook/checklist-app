@@ -10,3 +10,7 @@ export const modalTitle = writable("");
 export const modalAction = writable("");
 
 export const modalDate = writable("");
+
+export const modalItemId = writable("");
+
+export const modalItemType = writable("");

@@ -4,6 +4,17 @@ dayjs.extend(weekOfYear);
 
 import { months, weekdays } from "../data/calendarData";
 
+/**
+ * Planner Calculations
+ *
+ * @description Takes in the calendar object and
+ * generates a planner object containing the
+ * week's data
+ *
+ * @function plannerCalculations
+ * @param {Object} calendar calendar object
+ * @returns {Object} object with the weeks's data
+ */
 export const plannerCalculations = (calendar) => {
   let week = [];
   let date;
@@ -79,6 +90,16 @@ export const plannerCalculations = (calendar) => {
   }
 };
 
+/**
+ * Planner Refresh
+ *
+ * @description Takes in the date clicked in the
+ * calendar and generates that's date's week data.
+ *
+ * @function plannerRefresh
+ * @param {String} clickedDate
+ * @returns {Object} object with the weeks's data
+ */
 export const plannerRefresh = (clickedDate) => {
   let date = dayjs(clickedDate);
   let week = [];
