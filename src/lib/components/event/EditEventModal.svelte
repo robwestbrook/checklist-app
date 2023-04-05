@@ -16,6 +16,7 @@
   let loaded = false;
   let event;
 
+  // On component mount, get the event from storage
   onMount(() => {
     event = $events.filter((e) => e.id === $modalItemId);
     loaded = true;
@@ -75,7 +76,7 @@
         <textarea
           name="description"
           id="add-event-form__description"
-          bind:value={event[0].details}
+          bind:value={event[0].description}
           class="w-3/4 rounded-lg text-sm md:w-2/3 md:text-base"
         />
       </div>
@@ -171,7 +172,7 @@
         <input
           type="submit"
           class="rounded-lg border border-fuchsia-700 bg-fuchsia-700 px-4 py-2 font-bold text-white hover:bg-fuchsia-500"
-          value="add event"
+          value="edit event"
         />
       </div>
     </form>

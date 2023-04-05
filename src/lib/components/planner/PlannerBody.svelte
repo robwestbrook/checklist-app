@@ -1,4 +1,5 @@
 <script>
+  import ViewEvent from "../event/ViewEvent.svelte";
   import { events } from "../../store/eventStore";
   import {
     modalOpen,
@@ -30,6 +31,15 @@
     $modalOpen = !$modalOpen;
   };
 
+  /**
+   * Handle Edit Event Click
+   *
+   * @description Takes in the event ID and sets the modal
+   * stores values
+   *
+   * @function handleEditEventClick
+   * @param {String} id event ID
+   */
   const handleEditEventClick = (id) => {
     $modalTitle = "Edit Event";
     $modalAction = "editEvent";
@@ -38,12 +48,45 @@
     $modalOpen = !$modalOpen;
   };
 
+  /**
+   * Handle Delete Event Click
+   *
+   * @description Takes in the event ID and sets the
+   * modal stores values
+   *
+   * @function handleDeleteEventClick
+   * @param {String} id event ID
+   */
   const handleDeleteEventClick = (id) => {
     $modalTitle = "Delete Event";
     $modalAction = "deleteEvent";
     $modalItemType = "event";
     $modalItemId = id;
     $modalOpen = !$modalOpen;
+  };
+
+  /**
+   * Handle View Event Click
+   *
+   * @description Takes in the event ID and creates a
+   * string to reference the event's view element.
+   * Querys that reference, and sets the element as
+   * either hidden or block for viewing. The view is
+   * composed with the ViewEvent component.
+   *
+   * @function handleViewEventClick
+   * @param {String} id
+   */
+  const handleViewEventClick = (id) => {
+    let element = `#view-${id}`;
+    let viewElement = document.querySelector(element);
+    if (viewElement.classList.contains("hidden")) {
+      viewElement.classList.remove("hidden");
+      viewElement.classList.add("block");
+    } else {
+      viewElement.classList.remove("block");
+      viewElement.classList.add("hidden");
+    }
   };
 </script>
 
@@ -79,6 +122,29 @@
           {#each $events.filter((e) => e.startDate === day.date) as event (event.id)}
             <div class="border-b border-rose-400 pt-2">
               <div class="flex flex-row items-center">
+                <div class="pr-1 md:pr-3">
+                  <button
+                    on:click={() => handleViewEventClick(event.id)}
+                    class="rounded-lg p-1 hover:bg-blue-300"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      class="h-5 w-5 fill-white stroke-blue-600 stroke-2"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"
+                      />
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                      />
+                    </svg>
+                  </button>
+                </div>
                 <div class="pr-1 md:pr-3">
                   <button
                     on:click={handleEditEventClick(event.id)}
@@ -118,6 +184,9 @@
                 </div>
                 <div>{event.title}</div>
               </div>
+            </div>
+            <div id={`view-${event.id}`} class="hidden">
+              <ViewEvent {event} />
             </div>
           {/each}
         </div>

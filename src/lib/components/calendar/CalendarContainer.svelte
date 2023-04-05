@@ -30,6 +30,8 @@
   /**@type {Array}*/
   let calendarSize;
 
+  // Initialize planner data
+  /**@type {Object}*/
   let plannerData;
 
   calendar = renderCalendar(monthIndex);
@@ -72,6 +74,8 @@
     plannerData["currentDay"] = today;
   };
 
+  // When a day is clicked in the calendar, refresh
+  // the planner for that day's week
   const goToDate = (e) => {
     plannerData = plannerRefresh(e.detail);
     plannerData["currentDay"] = e.detail;

@@ -24,16 +24,12 @@
   /**
    * Handle Form Submit
    *
-   * @description Processes the Edit Event Form. Closes
-   * the modal, and resets the modal stores. Loops over
-   * the submitted for data and converts the data into
-   * an object. Then calls the eventStore's editEvent
-   * method, passing in the form data object.
-   *
+   * @description When the delete button is clicked,
+   * clear all modal stores and call deleteEvent
+   * method, passing in the event ID
    * @function handleSubmit
-   * @param {Object} e Event Object
    */
-  const handleClick = (e) => {
+  const handleClick = () => {
     $modalAction = "";
     $modalTitle = "";
     $modalItemType = "";
