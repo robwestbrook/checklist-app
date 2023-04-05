@@ -1,5 +1,19 @@
+/**
+ * Calendar Library Module
+ */
 import { weekdays, months } from "../data/calendarData";
 
+/**
+ * Convert Date String
+ *
+ * @description Takes a date string generted by the
+ * Javascript Date function and converts it into an
+ * app date string.
+ *
+ * @function convertDateString
+ * @param {String} date
+ * @returns {String} formatted date string
+ */
 export const convertDateString = (date) => {
   let [month, day, year] = date.split("/");
   if (month < 10) {
@@ -12,7 +26,19 @@ export const convertDateString = (date) => {
   return `${year}-${month}-${day}`;
 };
 
-// Calculate the day string
+/**
+ * Day String
+ *
+ * @description Takes in calendar parameters and
+ * returns a formatted date string
+ *
+ * @function dayString
+ * @param {Number} i index
+ * @param {String} year year
+ * @param {String} month month
+ * @param {String} paddingDays calendar padding days for the month
+ * @returns {String} A formatted date string
+ */
 export const dayString = (i, year, month, paddingDays) => {
   let monthString;
 
@@ -32,7 +58,17 @@ export const dayString = (i, year, month, paddingDays) => {
   return dayString.trim();
 };
 
-// Determine if the passed data is today
+/**
+ * Is It Today?
+ *
+ * @description Takes in two date strings and
+ * determines if they are the same.
+ *
+ * @function isItToday
+ * @param {String} day a formatted date string for selected day
+ * @param {String} today a formatted date string for current day
+ * @returns {Boolean}
+ */
 export const isItToday = (day, today) => {
   if (day.trim() == today.trim()) {
     return true;
@@ -151,7 +187,13 @@ export const renderCalendar = (index) => {
 };
 
 /**
+ * Calendar Spaces
  *
+ * @description Builds an array of numbers that
+ * corresponds to number of spaces need for a month's
+ * calendar
+ *
+ * @function calendarSpaces
  * @param {Number} paddingDays number of day squares to render before the first day of the month
  * @param {Number} daysInMonth Number of days in the month
  * @returns {Array} Array of numbers to loop through when building calendar

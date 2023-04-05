@@ -9,16 +9,10 @@
     calendarSpaces,
   } from "../../library/calendar";
 
-  import { plannerCalculations, plannerRefresh } from "../../library/planner";
-
-  import { events } from "../../store/eventStore";
-
   import Calendar from "./Calendar.svelte";
-  import CalendarMonthAndYear from "./CalendarMonthAndYear.svelte";
   import PlannerContainer from "../planner/PlannerContainer.svelte";
 
-  $: allEvents = $events;
-  allEvents = allEvents;
+  import { plannerCalculations, plannerRefresh } from "../../library/planner";
 
   // Initialize month index
   /** @type {Number}*/
@@ -40,11 +34,11 @@
 
   calendar = renderCalendar(monthIndex);
   calendar["today"] = true;
+  plannerData = plannerCalculations(calendar);
+  plannerData["currentDay"] = today;
 
   calendarSize = calendarSpaces(calendar.paddingDays, calendar.daysInMonth);
 
-  plannerData = plannerCalculations(calendar);
-  plannerData["currentDay"] = today;
   // Rebuild calendar to previous month when
   // previous month button is clicked
   const previousMonth = (e) => {
@@ -52,7 +46,6 @@
     calendar = renderCalendar(monthIndex);
     calendar["today"] = false;
     calendarSize = calendarSpaces(calendar.paddingDays, calendar.daysInMonth);
-
     plannerData = plannerCalculations(calendar);
     plannerData["currentDay"] = today;
   };
@@ -64,7 +57,6 @@
     calendar = renderCalendar(monthIndex);
     calendar["today"] = false;
     calendarSize = calendarSpaces(calendar.paddingDays, calendar.daysInMonth);
-
     plannerData = plannerCalculations(calendar);
     plannerData["currentDay"] = today;
   };
@@ -76,7 +68,6 @@
     calendar = renderCalendar(monthIndex);
     calendar["today"] = true;
     calendarSize = calendarSpaces(calendar.paddingDays, calendar.daysInMonth);
-
     plannerData = plannerCalculations(calendar);
     plannerData["currentDay"] = today;
   };
@@ -87,18 +78,13 @@
   };
 </script>
 
-<div
-  class="container mx-auto mt-4 flex flex-row rounded-t-md border-x-4 border-t-4 border-neutral-600 bg-neutral-200"
->
-  <CalendarMonthAndYear monthAndYear={calendar.calendarMonthAndYear} />
-  <Calendar
-    {calendar}
-    {calendarSize}
-    {today}
-    on:previous={previousMonth}
-    on:next={nextMonth}
-    on:today={goToToday}
-    on:goToDay={goToDate}
-  />
-</div>
-<PlannerContainer {plannerData} />
+<Calendar
+  {calendar}
+  {calendarSize}
+  {today}
+  on:previous={previousMonth}
+  on:next={nextMonth}
+  on:today={goToToday}
+  on:goToDay={goToDate}
+/>
+<PlannerContainer {plannerData} />}

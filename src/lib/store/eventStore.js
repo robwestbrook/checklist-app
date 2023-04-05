@@ -22,20 +22,38 @@ events.subscribe((value) => {
   }
 });
 
+/**
+ * Add Event
+ *
+ * @description Add an event to storage.
+ *
+ * @function addEvent
+ * @param {Object} data Event form data object
+ */
 export const addEvent = (data) => {
+  const {
+    title,
+    description,
+    allDay,
+    multiDay,
+    startDate,
+    startTime,
+    endDate,
+    endTime,
+  } = data;
   events.update((currentEvents) => {
     return [
       ...currentEvents,
       {
         id: uuidv4(),
-        title: data.title,
-        description: data.description,
-        allDay: data.allDay,
-        multiDay: data.multiDay,
-        startDate: data.startDate,
-        startTime: data.startTime,
-        endDate: data.endDate,
-        endTime: data.endTime,
+        title,
+        description,
+        allDay,
+        multiDay,
+        startDate,
+        startTime,
+        endDate,
+        endTime,
         createdAt: convertDateString(new Date().toLocaleDateString()),
         updatedAt: convertDateString(new Date().toLocaleDateString()),
       },
@@ -43,16 +61,55 @@ export const addEvent = (data) => {
   });
 };
 
+/**
+ * Delete Event
+ *
+ * @description Delete an event from storage
+ *
+ * @function deleteEvent
+ * @param {String} id event ID
+ */
 export const deleteEvent = (id) => {
   events.update((currentEvents) => {
     return currentEvents.filter((event) => event.id !== id);
   });
 };
 
+/**
+ * Get Events by Date
+ *
+ * @description Get all events by date
+ *
+ * @function getEventsByDate
+ * @param {String} date
+ * @returns {Array} array of all events with this start date
+ */
 export const getEventsByDate = (date) => {
   return events.filter((event) => event.startDate === date);
 };
 
+/**
+ * Get Event by Id
+ *
+ * @description Get one event by ID
+ *
+ * @function getEventById
+ * @param {String} id
+ * @returns {Object} event object
+ */
+export const getEventById = (id) => {
+  return events.filter((event) => event.id === id);
+};
+
+/**
+ * Edit Event
+ *
+ * @description Get an event by ID and update data
+ *
+ * @function editEvent
+ * @param {String} id event ID
+ * @param {Object} data form data object
+ */
 export const editEvent = (id, data) => {
   const {
     title,

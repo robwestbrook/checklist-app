@@ -1,9 +1,32 @@
 <script>
-  import { modalOpen } from "../../store/modalStore";
+  // Import Modal Stores
+  import {
+    modalOpen,
+    modalDate,
+    modalAction,
+    modalTitle,
+  } from "../../store/modalStore";
+
+  // Import Event Store
   import { addEvent } from "../../store/eventStore";
 
+  /**
+   * Handle Form Submit
+   *
+   * @description Processes the Add Event Form. Closes
+   * the modal, and resets the modal stores. Loops over
+   * the submitted for data and converts the data into
+   * an object. Then calls the eventStore's addEvent
+   * method, passing in the form data object.
+   *
+   * @function handleSubmit
+   * @param {Object} e Event Object
+   */
   const handleSubmit = (e) => {
     $modalOpen = !$modalOpen;
+    $modalDate = "";
+    $modalAction = "";
+    $modalTitle = "";
     const formData = new FormData(e.target);
     let data = {};
     for (let field of formData) {
@@ -12,7 +35,6 @@
     }
     e.target.reset();
     addEvent(data);
-    return;
   };
 </script>
 
@@ -81,6 +103,7 @@
         type="date"
         name="startDate"
         id="add-event-form__start-date"
+        value={$modalDate || ""}
         class="w-3/4 rounded-lg text-sm md:w-2/3 md:text-base"
         placeholder="start date"
       />

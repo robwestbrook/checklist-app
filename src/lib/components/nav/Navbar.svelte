@@ -6,10 +6,28 @@
 
   let menuOpen = false;
 
+  /**
+   * Handle Menu Button
+   *
+   * @description Toggles the menuOpen variable to
+   * toggle the visibility of the navbar meny.
+   *
+   * @function handleMenuButton
+   * @param {Object} e event object
+   */
   const handleMenuButton = (e) => {
     menuOpen = !menuOpen;
   };
 
+  /**
+   * Handle Click
+   *
+   * @description Processes the menu item clicked,
+   * closes the menu, and sets the modal stores.
+   *
+   * @function handleClick
+   * @param {Object} e event object
+   */
   const handleClick = (e) => {
     handleMenuButton();
     $modalTitle = e.detail.label;

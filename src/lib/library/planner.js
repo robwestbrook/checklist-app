@@ -4,11 +4,6 @@ dayjs.extend(weekOfYear);
 
 import { months, weekdays } from "../data/calendarData";
 
-import { get } from "svelte/store";
-import { events } from "../store/eventStore";
-
-const weeksEvents = get(events);
-
 export const plannerCalculations = (calendar) => {
   let week = [];
   let date;
@@ -46,7 +41,6 @@ export const plannerCalculations = (calendar) => {
       temp["date"] = `${year}-${month}-${day}`;
       temp["year"] = year;
       temp["name"] = weekdays[i];
-      temp["events"] = getDaysEvents(temp.date);
       week.push(temp);
     }
 
@@ -79,7 +73,6 @@ export const plannerCalculations = (calendar) => {
       temp["date"] = `${year}-${month}-${day}`;
       temp["year"] = year;
       temp["name"] = weekdays[i];
-      temp["events"] = getDaysEvents(temp.date);
       week.push(temp);
     }
     return week;
@@ -115,13 +108,8 @@ export const plannerRefresh = (clickedDate) => {
     temp["date"] = `${year}-${month}-${day}`;
     temp["year"] = year;
     temp["name"] = weekdays[i];
-    temp["events"] = getDaysEvents(temp.date);
     week.push(temp);
   }
 
   return week;
-};
-
-const getDaysEvents = (date) => {
-  return weeksEvents.filter((event) => event.startDate === date);
 };

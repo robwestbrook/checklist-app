@@ -1,5 +1,26 @@
 <script>
-  import { modalOpen, modalTitle } from "../../store/modalStore";
+  import {
+    modalOpen,
+    modalTitle,
+    modalDate,
+    modalAction,
+  } from "../../store/modalStore";
+
+  /**
+   * Handle Cancel
+   *
+   * @description Resets all modal stores to default
+   * and closes the modal when the modal cancel
+   * button is clicked
+   *
+   * @function handleCancel
+   */
+  const handleCancel = () => {
+    $modalOpen = !$modalOpen;
+    $modalTitle = "";
+    $modalDate = "";
+    $modalAction = "";
+  };
 </script>
 
 {#if $modalOpen}
@@ -16,7 +37,7 @@
         {$modalTitle ? $modalTitle : "No title"}
         <button
           class="ml-4 rounded-full border-4 border-neutral-800 bg-neutral-500 p-2 hover:bg-red-600"
-          on:click={() => ($modalOpen = !$modalOpen)}
+          on:click={() => handleCancel()}
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
