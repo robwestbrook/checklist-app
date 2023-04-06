@@ -9,7 +9,7 @@
 </script>
 
 <div
-  class="container mx-auto mt-4 flex flex-row rounded-t-md border-x-4 border-t-4 border-neutral-600 bg-neutral-200"
+  class="container mx-auto mt-4 flex flex-row rounded-t-md border-x-4 border-t-4 border-slate-600 bg-slate-100"
 >
   <CalendarMonthAndYear monthAndYear={calendar.calendarMonthAndYear} />
   <div

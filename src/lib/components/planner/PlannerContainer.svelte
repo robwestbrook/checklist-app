@@ -10,7 +10,7 @@
 </script>
 
 <div
-  class="container mx-auto space-y-3 rounded-b-md border-x-4 border-b-4 border-neutral-600 bg-neutral-200 py-3"
+  class="container mx-auto space-y-3 rounded-b-md border-x-4 border-b-4 border-slate-600 bg-slate-100 py-3"
 >
   <div class="text-center">
     <button
@@ -20,7 +20,7 @@
       {viewPlanner ? "Close" : "View"} Planner
     </button>
   </div>
-  <div class={viewPlanner ? "block" : "hidden"}>
+  <div class="{viewPlanner ? 'block' : 'hidden'} ">
     {#each plannerData as day, index (day.date)}
       <PlannerBody {day} {index} currentDay={plannerData.currentDay} />
     {/each}
