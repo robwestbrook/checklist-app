@@ -13,11 +13,7 @@
 
   const handleEventView = (e) => {
     let days = e.target.value;
-    if (days !== "all") {
-      interval = parseInt(days);
-    } else {
-      interval = 9999;
-    }
+    interval = parseInt(days);
   };
 </script>
 
@@ -42,7 +38,7 @@
           <option value="90">next 90 days</option>
           <option value="120">next 120 days</option>
           <option value="180">next 180 days</option>
-          <option value="all">all events</option>
+          <option value="9999">all events</option>
         </select>
       </div>
     </div>
