@@ -11,6 +11,7 @@
 
   import Calendar from "./Calendar.svelte";
   import PlannerContainer from "../planner/PlannerContainer.svelte";
+  import EventTableContainer from "../event/EventTableContainer.svelte";
 
   import { plannerCalculations, plannerRefresh } from "../../library/planner";
 
@@ -91,4 +92,6 @@
   on:today={goToToday}
   on:goToDay={goToDate}
 />
-<PlannerContainer {plannerData} />}
+<PlannerContainer {plannerData} />
+
+<EventTableContainer />
