@@ -94,7 +94,7 @@
 
 <div class="mx-auto flex w-11/12 flex-row">
   <div
-    class="flex w-full flex-row rounded-lg border border-neutral-400 drop-shadow-lg {day.date ==
+    class="my-2 flex w-full flex-row rounded-lg border border-neutral-400 drop-shadow-lg {day.date ==
     currentDay
       ? 'bg-green-300'
       : 'bg-white'}"

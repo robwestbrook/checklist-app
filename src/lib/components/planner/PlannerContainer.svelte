@@ -17,7 +17,7 @@
       on:click={() => plannerOpen()}
       class="rounded-lg border border-cyan-500 bg-cyan-500 px-4 py-1 font-semibold text-black drop-shadow-lg hover:bg-white hover:text-cyan-500"
     >
-      {viewPlanner ? "Close" : "View"} Planner
+      {viewPlanner ? "Hide" : "View"} Planner
     </button>
   </div>
   <div class="{viewPlanner ? 'block' : 'hidden'} ">
