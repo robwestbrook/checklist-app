@@ -1,5 +1,9 @@
 <script>
-  import { months } from "../../data/calendarData";
+  import dayjs from "dayjs";
+  import isBetween from "dayjs/plugin/isBetween";
+
+  dayjs.extend(isBetween);
+
   import { events } from "../../store/eventStore";
   import { getToday, getFutureDate } from "../../library/event";
 
@@ -10,6 +14,14 @@
 
   $: intervalString = interval.toString();
   $: futureDate = getFutureDate(interval);
+  $: getEvents = $events.filter((e) =>
+    dayjs(e.startDate).isBetween(today, futureDate)
+  );
+  $: intervalEvents = getEvents.sort(
+    (a, b) => new Date(a.startDate) - new Date(b.startDate)
+  );
+
+  $: console.log(intervalEvents);
 
   const handleEventView = (e) => {
     let days = e.target.value;
@@ -52,8 +64,8 @@
         </tr>
       </thead>
       <tbody>
-        {#each $events as event}
-          <EventTableBody {event} {today} {futureDate} />
+        {#each intervalEvents as event}
+          <EventTableBody {event} />
         {/each}
       </tbody>
     </table>
