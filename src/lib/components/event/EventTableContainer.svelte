@@ -12,6 +12,14 @@
   let interval = 30;
   let today = getToday();
 
+  /**
+   * Reactive properties
+   *
+   * intervalString = convert select box value to string
+   * futureDate = get the future date based on interval
+   * getEvents = gets an array of events between today and future date
+   * intervalEvents = sort interval events by start date
+   */
   $: intervalString = interval.toString();
   $: futureDate = getFutureDate(interval);
   $: getEvents = $events.filter((e) =>
@@ -20,8 +28,6 @@
   $: intervalEvents = getEvents.sort(
     (a, b) => new Date(a.startDate) - new Date(b.startDate)
   );
-
-  $: console.log(intervalEvents);
 
   const handleEventView = (e) => {
     let days = e.target.value;
@@ -45,6 +51,7 @@
           on:change={handleEventView}
         >
           <option>- Change Events View -</option>
+          <option value="7">next 7 days</option>
           <option value="30">next 30 days</option>
           <option value="60">next 60 days</option>
           <option value="90">next 90 days</option>
