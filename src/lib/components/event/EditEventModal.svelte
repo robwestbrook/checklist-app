@@ -11,7 +11,7 @@
   } from "../../store/modalStore";
 
   // Import Event Store
-  import { events, editEvent } from "../../store/eventStore";
+  import { events } from "../../store/eventStore";
 
   let loaded = false;
   let event;
@@ -37,7 +37,6 @@
   const handleSubmit = (e) => {
     $modalAction = "";
     $modalTitle = "";
-    $modalItemId = "";
     $modalItemType = "";
     $modalOpen = !$modalOpen;
     const formData = new FormData(e.target);
@@ -47,7 +46,8 @@
       data[key] = value;
     }
     e.target.reset();
-    editEvent($modalItemId, data);
+    events.editEvent($modalItemId, data);
+    $modalItemId = "";
   };
 </script>
 

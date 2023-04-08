@@ -23,7 +23,7 @@
   $: intervalString = interval.toString();
   $: futureDate = getFutureDate(interval);
   $: getEvents = $events.filter((e) =>
-    dayjs(e.startDate).isBetween(today, futureDate)
+    dayjs(e.startDate).isBetween(dayjs(today).subtract(1, "day"), futureDate)
   );
   $: intervalEvents = getEvents.sort(
     (a, b) => new Date(a.startDate) - new Date(b.startDate)

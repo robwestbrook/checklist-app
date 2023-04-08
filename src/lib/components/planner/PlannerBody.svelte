@@ -1,6 +1,4 @@
 <script>
-  import { slide } from "svelte/transition";
-  import { quintOut } from "svelte/easing";
   import ViewEvent from "../event/ViewEvent.svelte";
   import { events } from "../../store/eventStore";
   import {

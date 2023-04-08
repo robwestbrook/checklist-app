@@ -11,7 +11,7 @@
   } from "../../store/modalStore";
 
   // Import Event Store
-  import { events, deleteEvent } from "../../store/eventStore";
+  import { events } from "../../store/eventStore";
 
   let loaded = false;
   let event;
@@ -35,7 +35,7 @@
     $modalItemType = "";
     $modalOpen = !$modalOpen;
 
-    deleteEvent($modalItemId);
+    events.deleteEvent($modalItemId);
 
     $modalItemId = "";
   };

@@ -8,7 +8,7 @@
   } from "../../store/modalStore";
 
   // Import Event Store
-  import { addEvent } from "../../store/eventStore";
+  import { events } from "../../store/eventStore";
 
   /**
    * Handle Form Submit
@@ -34,7 +34,7 @@
       data[key] = value;
     }
     e.target.reset();
-    addEvent(data);
+    events.addEvent(data);
   };
 </script>
 
