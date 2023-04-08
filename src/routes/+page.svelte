@@ -13,6 +13,12 @@
   import EditCategoryModal from "../lib/components/category/EditCategoryModal.svelte";
   import DeleteCategoryModal from "../lib/components/category/DeleteCategoryModal.svelte";
 
+  import ListContainer from "../lib/components/list/ListContainer.svelte";
+  import AddListModal from "../lib/components/list/AddListModal.svelte";
+  import EditListModal from "../lib/components/list/EditListModal.svelte";
+  import ArchiveListModal from "../lib/components/list/ArchiveListModal.svelte";
+  import DeleteListModal from "../lib/components/list/DeleteListModal.svelte";
+
   // Import Modal Stores
   import { modalOpen, modalAction } from "../lib/store/modalStore";
 </script>
@@ -38,10 +44,19 @@
         <DeleteCategoryModal />
       {:else if $modalAction === "viewCategories"}
         <ViewCategoriesModal />
+      {:else if $modalAction === "addList"}
+        <AddListModal />
+      {:else if $modalAction === "editList"}
+        <EditListModal />
+      {:else if $modalAction === "archiveList"}
+        <ArchiveListModal />
+      {:else if $modalAction === "deleteList"}
+        <DeleteListModal />
       {/if}
     </Modal>
   {/if}
 
   <Navbar />
   <CalendarContainer />
+  <ListContainer />
 </div>
