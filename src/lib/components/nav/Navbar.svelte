@@ -1,4 +1,5 @@
 <script>
+  import { clickOutside } from "../../library/clickOutside";
   import { navbarItems } from "../../data/navbarItems";
   import NavbarItem from "./NavbarItem.svelte";
 
@@ -71,7 +72,11 @@
         </div>
       </div>
       <div>
-        <button on:click={handleMenuButton}>
+        <button
+          on:click={handleMenuButton}
+          use:clickOutside
+          on:outclick={() => (menuOpen = false)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             id="menu-button"
@@ -88,7 +93,7 @@
       <div
         class="{menuOpen
           ? ''
-          : 'hidden'} w-full lg:flex lg:w-auto lg:items-center"
+          : 'hidden'} w-full lg:flex lg:w-auto lg:items-center lg:transition-none"
       >
         <ul
           class="flex flex-col pt-4 text-base text-white lg:flex-row lg:justify-between lg:pt-2"
