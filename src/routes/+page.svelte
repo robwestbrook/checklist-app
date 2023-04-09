@@ -19,6 +19,10 @@
   import ArchiveListModal from "../lib/components/list/ArchiveListModal.svelte";
   import DeleteListModal from "../lib/components/list/DeleteListModal.svelte";
 
+  import AddListItemModal from "../lib/components/listItems/AddListItemModal.svelte";
+  import EditListItemModal from "../lib/components/listItems/EditListItemModal.svelte";
+  import DeleteListItemModal from "../lib/components/listItems/DeleteListItemModal.svelte";
+
   // Import Modal Stores
   import { modalOpen, modalAction } from "../lib/store/modalStore";
 </script>
@@ -52,6 +56,12 @@
         <ArchiveListModal />
       {:else if $modalAction === "deleteList"}
         <DeleteListModal />
+      {:else if $modalAction === "addListItem"}
+        <AddListItemModal />
+      {:else if $modalAction === "editListItem"}
+        <EditListItemModal />
+      {:else if $modalAction == "deleteListItem"}
+        <DeleteListItemModal />
       {/if}
     </Modal>
   {/if}

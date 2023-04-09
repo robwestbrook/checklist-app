@@ -1,7 +1,9 @@
 <script>
   import { onMount } from "svelte";
   import ListActions from "./ListActions.svelte";
+  import ListItem from "../listItems/ListItem.svelte";
   import { lists } from "../../store/listStore";
+  import { listItems } from "../../store/listItemStore";
   import { categories } from "../../store/categoryStore";
   import { dateToNamedMonth } from "../../library/list";
   export let list;
@@ -15,6 +17,8 @@
     categoryName = category[0].name;
     loaded = true;
   }
+
+  $: items = $listItems.filter((i) => i.listId == list.id);
 </script>
 
 {#if loaded}
@@ -37,13 +41,13 @@
     <div class="w-full border-b border-blue-200 p-2">
       <span class="text-lg font-bold"> category: {categoryName} </span>
     </div>
-    <!-- {#if list.listItems && list.listItems.length > 0}
-    {#each list.listItems as item}
-      {#key item.itemId}
-        <ListItem {item} />
-      {/key}
-    {/each}
-  {/if} -->
+    {#if items}
+      {#each items as item}
+        {#key item.id}
+          <ListItem id={item.id} />
+        {/key}
+      {/each}
+    {/if}
 
     <div class="my-2 flex w-full flex-row items-center justify-between">
       <div class="p-2 text-xs">
