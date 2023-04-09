@@ -12,12 +12,15 @@
 
   // Import Event Store
   import { lists } from "../../store/listStore";
+  import { listItems } from "../../store/listItemStore";
 
   let loaded = false;
   let list;
+  let items;
 
   onMount(() => {
     list = $lists.filter((e) => e.id === $modalItemId);
+    items = $listItems.filter((i) => i.listId === $modalItemId);
     loaded = true;
   });
 
@@ -34,6 +37,10 @@
     $modalTitle = "";
     $modalItemType = "";
     $modalOpen = !$modalOpen;
+
+    items.forEach((i) => {
+      listItems.deleteItem(i.id);
+    });
 
     lists.deleteList($modalItemId);
 

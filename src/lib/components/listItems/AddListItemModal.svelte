@@ -52,7 +52,6 @@
   };
 
   const handleAddClick = () => {
-    console.log("clicked");
     count = count + 1;
     numberOfAdds.push(1);
     numberOfAdds = numberOfAdds;

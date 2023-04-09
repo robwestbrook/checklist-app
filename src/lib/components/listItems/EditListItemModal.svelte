@@ -47,7 +47,6 @@
     e.target.reset();
     data["complete"] = item[0].complete;
     data["listId"] = item[0].listId;
-    console.log(data);
     listItems.editItem($modalItemId, data);
     $modalItemId = "";
   };
