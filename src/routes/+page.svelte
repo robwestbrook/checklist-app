@@ -23,6 +23,8 @@
   import EditListItemModal from "../lib/components/listItems/EditListItemModal.svelte";
   import DeleteListItemModal from "../lib/components/listItems/DeleteListItemModal.svelte";
 
+  import Footer from "../lib/components/nav/Footer.svelte";
+
   // Import Modal Stores
   import { modalOpen, modalAction } from "../lib/store/modalStore";
 </script>
@@ -69,4 +71,5 @@
   <Navbar />
   <CalendarContainer />
   <ListContainer />
+  <Footer />
 </div>
