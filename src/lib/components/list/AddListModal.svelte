@@ -40,6 +40,7 @@
 </script>
 
 <div class="w-11/12">
+  {#if $categories}
   <form on:submit|preventDefault={handleSubmit}>
     <div class="flex flex-row items-center">
       <label
@@ -78,4 +79,13 @@
       />
     </div>
   </form>
+  {:else}
+    <div class="text-center text-lg">
+      There are no categories. 
+      A new list requires a category.
+      Use the "Add Category" option in the top menu to
+      add a category.
+    </div>
+  {/if}
 </div>
+
