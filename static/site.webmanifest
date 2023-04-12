@@ -1,6 +1,7 @@
 {
   "name": "Remember",
   "short_name": "Remember",
+  "id": "remember-application",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",

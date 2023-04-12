@@ -88,7 +88,7 @@
         <input
           type="submit"
           class="rounded-lg border border-fuchsia-700 bg-fuchsia-700 px-4 py-2 font-bold text-white hover:bg-fuchsia-500"
-          value="add list"
+          value="add note"
         />
       </div>
     </form>
