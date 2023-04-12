@@ -68,7 +68,7 @@
           </a>
         </div>
         <div class="px-3">
-          <a href="/" class="text-xl text-white"> Remember </a>
+          <a href="/" class="text-xl font-bold text-white"> Remember </a>
         </div>
       </div>
       <div>

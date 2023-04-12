@@ -49,13 +49,20 @@
       {/each}
     {/if}
 
-    <div class="my-2 flex w-full flex-row items-center justify-between">
-      <div class="p-2 text-xs">
-        created: {dateToNamedMonth(list.createdAt, 3)}
+    <div class="w-full border-b border-blue-300">
+      <div class="mb-1 mt-2 flex w-full flex-row items-center justify-between">
+        <div class="p-1 text-xs">
+          created: {dateToNamedMonth(list.createdAt, 3)}
+        </div>
+        <div class="p-1 text-xs">
+          updated: {dateToNamedMonth(list.updatedAt, 3)}
+        </div>
       </div>
-      <div class="p-2 text-xs">
-        updated: {dateToNamedMonth(list.updatedAt, 3)}
-      </div>
+    </div>
+    <div
+      class="my-1 w-full rounded-lg bg-purple-600 py-1 text-center text-xs font-bold text-white"
+    >
+      this list is {list.archived ? "archived" : "open"}
     </div>
     <ListActions {list} />
   </div>

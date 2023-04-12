@@ -11,13 +11,13 @@
   } from "../../store/modalStore";
 
   // Import Event Store
-  import { listItems } from "../../store/listItemStore";
+  import { notes } from "../../store/noteStore";
 
   let loaded = false;
-  let item;
+  let note;
 
   onMount(() => {
-    item = $listItems.filter((e) => e.id === $modalItemId);
+    note = $notes.filter((e) => e.id === $modalItemId);
     loaded = true;
   });
 
@@ -35,7 +35,7 @@
     $modalItemType = "";
     $modalOpen = !$modalOpen;
 
-    listItems.deleteItem($modalItemId);
+    notes.deleteNote($modalItemId);
 
     $modalItemId = "";
   };
@@ -44,10 +44,8 @@
 {#if loaded}
   <div class="w-11/12">
     <div class="flex flex-col items-center justify-center">
-      <div class="m-2 text-center text-xl font-bold">
-        Delete this list item?
-      </div>
-      <div class="m-2">{item[0].text}</div>
+      <div class="m-2 text-center text-xl font-bold">Delete this note?</div>
+      <div class="m-2">{note[0].title}</div>
       <div class="m-2">
         <button
           on:click={handleClick}

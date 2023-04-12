@@ -23,6 +23,12 @@
   import EditListItemModal from "../lib/components/listItems/EditListItemModal.svelte";
   import DeleteListItemModal from "../lib/components/listItems/DeleteListItemModal.svelte";
 
+  import NoteContainer from "../lib/components/notes/NoteContainer.svelte";
+  import AddNoteModal from "../lib/components/notes/AddNoteModal.svelte";
+  import EditNoteModal from "../lib/components/notes/EditNoteModal.svelte";
+  import ArchiveNoteModal from "../lib/components/notes/ArchiveNoteModal.svelte";
+  import DeleteNoteModal from "../lib/components/notes/DeleteNoteModal.svelte";
+
   import Footer from "../lib/components/nav/Footer.svelte";
 
   // Import Modal Stores
@@ -62,8 +68,16 @@
         <AddListItemModal />
       {:else if $modalAction === "editListItem"}
         <EditListItemModal />
-      {:else if $modalAction == "deleteListItem"}
+      {:else if $modalAction === "deleteListItem"}
         <DeleteListItemModal />
+      {:else if $modalAction === "addNote"}
+        <AddNoteModal />
+      {:else if $modalAction === "editNote"}
+        <EditNoteModal />
+      {:else if $modalAction === "archiveNote"}
+        <ArchiveNoteModal />
+      {:else if $modalAction === "deleteNote"}
+        <DeleteNoteModal />
       {/if}
     </Modal>
   {/if}
@@ -71,5 +85,6 @@
   <Navbar />
   <CalendarContainer />
   <ListContainer />
+  <NoteContainer />
   <Footer />
 </div>
