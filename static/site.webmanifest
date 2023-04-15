@@ -1,7 +1,9 @@
 {
   "name": "Remember",
   "short_name": "Remember",
-  "id": "remember-application",
+  "id": "remember-app",
+  "start_url": "/",
+  "description": "A personal calendar, lists, and notes app",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
