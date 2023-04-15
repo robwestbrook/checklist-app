@@ -1,6 +1,9 @@
 <script>
+  import { backupIndexedDBDatabase } from "../../library/dbFunctions";
+  import { version } from "../../library/version";
   import { clickOutside } from "../../library/clickOutside";
   import { navbarItems } from "../../data/navbarItems";
+  //import { exportFromDb } from "../../data/db";
   import NavbarItem from "./NavbarItem.svelte";
 
   import { modalOpen, modalTitle, modalAction } from "../../store/modalStore";
@@ -29,11 +32,32 @@
    * @function handleClick
    * @param {Object} e event object
    */
-  const handleClick = (e) => {
-    handleMenuButton();
-    $modalTitle = e.detail.label;
-    $modalAction = e.detail.action;
-    $modalOpen = !$modalOpen;
+  const handleClick = async (e) => {
+    if (e.detail.params === "backup") {
+      console.log(e.detail.params);
+      try {
+        let backup = await backupIndexedDBDatabase(
+          version.dbName,
+          version.dbBackupName
+        );
+        if (backup) {
+          console.log("Backup created");
+          alert(
+            `Your database has been backed up as ${version.dbBackupName}. Download now`
+          );
+        } else {
+          throw new Error("failed to create backup");
+          alert(`There was a problem. Please try again.`);
+        }
+      } catch (err) {
+        console.error("Failed to create backup: ", err);
+      }
+    } else {
+      handleMenuButton();
+      $modalTitle = e.detail.label;
+      $modalAction = e.detail.action;
+      $modalOpen = !$modalOpen;
+    }
   };
 </script>
 

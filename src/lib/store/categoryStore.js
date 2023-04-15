@@ -63,6 +63,11 @@ const createCategoryStore = () => {
         categories.filter((category) => category.id !== id)
       );
     },
+    restore: async () => {
+      db.categories.toArray().then((categories) => {
+        set(categories);
+      });
+    },
   };
 };
 

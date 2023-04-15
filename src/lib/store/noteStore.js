@@ -69,6 +69,11 @@ const createNoteStore = () => {
       await db.notes.delete(id);
       update((notes) => notes.filter((note) => note.id !== id));
     },
+    restore: async () => {
+      db.notes.toArray().then((notes) => {
+        set(notes);
+      });
+    },
   };
 };
 

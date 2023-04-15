@@ -29,6 +29,8 @@
   import ArchiveNoteModal from "../lib/components/notes/ArchiveNoteModal.svelte";
   import DeleteNoteModal from "../lib/components/notes/DeleteNoteModal.svelte";
 
+  import UploadJsonFile from "../lib/components/backup/UploadJSONFile.svelte";
+
   import Footer from "../lib/components/nav/Footer.svelte";
 
   // Import Modal Stores
@@ -78,6 +80,8 @@
         <ArchiveNoteModal />
       {:else if $modalAction === "deleteNote"}
         <DeleteNoteModal />
+      {:else if $modalAction === "uploadFile"}
+        <UploadJsonFile />
       {/if}
     </Modal>
   {/if}

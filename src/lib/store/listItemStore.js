@@ -62,6 +62,11 @@ const createListItemStore = () => {
       await db.listItems.delete(id);
       update((items) => items.filter((item) => item.id !== id));
     },
+    restore: async () => {
+      db.listItems.toArray().then((listItems) => {
+        set(listItems);
+      });
+    },
   };
 };
 
