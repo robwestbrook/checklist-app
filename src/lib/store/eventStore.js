@@ -95,6 +95,11 @@ const createEventStore = () => {
       await db.events.delete(id);
       update((events) => events.filter((event) => event.id !== id));
     },
+    restore: async () => {
+      db.events.toArray().then((events) => {
+        set(events);
+      });
+    },
   };
 };
 

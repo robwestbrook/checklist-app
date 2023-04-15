@@ -15,4 +15,5 @@ class RememberDB extends Dexie {
 }
 
 const db = new RememberDB();
+
 export default db;

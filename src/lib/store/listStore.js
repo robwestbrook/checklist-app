@@ -66,6 +66,11 @@ const createListStore = () => {
       await db.lists.delete(id);
       update((lists) => lists.filter((list) => list.id !== id));
     },
+    restore: async () => {
+      db.lists.toArray().then((lists) => {
+        set(lists);
+      });
+    },
   };
 };
 

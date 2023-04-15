@@ -31,6 +31,6 @@
   "type": "module",
   "dependencies": {
     "dexie": "^4.0.1-alpha.10",
-    "uuid": "^9.0.0"
+    "dexie-export-import": "^4.0.7"
   }
 }
