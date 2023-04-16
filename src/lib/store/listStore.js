@@ -71,6 +71,23 @@ const createListStore = () => {
         set(lists);
       });
     },
+    changeUpdatedAtDate: async (id) => {
+      const updateTime = convertDateString(new Date().toLocaleDateString());
+      const updated = await db.lists.update(id, { updatedAt: updateTime });
+      if (updated) {
+        update((lists) => {
+          return lists.map((list) => {
+            if (list.id === id) {
+              return {
+                ...list,
+                updatedAt: updateTime,
+              };
+            }
+            return list;
+          });
+        });
+      }
+    },
   };
 };
 

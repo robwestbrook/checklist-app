@@ -92,7 +92,9 @@
         class="container mx-auto my-1 grid w-11/12 grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3"
       >
         {#each $lists as list}
-          <List {list} />
+          {#key list.id}
+            <List {list} />
+          {/key}
         {/each}
       </div>
     {:else}

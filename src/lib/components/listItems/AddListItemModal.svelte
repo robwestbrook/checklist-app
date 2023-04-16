@@ -49,6 +49,8 @@
       listItems.addItem(itemData);
     }
     $listItemAddIndex = 0;
+
+    lists.changeUpdatedAtDate(list[0].id);
   };
 
   const handleAddClick = () => {

@@ -10,6 +10,8 @@
     modalItemType,
   } from "../../store/modalStore";
 
+  import { lists } from "../../store/listStore";
+
   // Import Event Store
   import { listItems } from "../../store/listItemStore";
 
@@ -38,6 +40,8 @@
     listItems.deleteItem($modalItemId);
 
     $modalItemId = "";
+
+    lists.changeUpdatedAtDate(item[0].listId);
   };
 </script>
 

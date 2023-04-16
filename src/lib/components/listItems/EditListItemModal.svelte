@@ -10,6 +10,8 @@
     modalItemType,
   } from "../../store/modalStore";
 
+  import { lists } from "../../store/listStore";
+
   import { listItems } from "../../store/listItemStore";
 
   let loaded = false;
@@ -49,6 +51,8 @@
     data["listId"] = item[0].listId;
     listItems.editItem($modalItemId, data);
     $modalItemId = "";
+
+    lists.changeUpdatedAtDate(item[0].listId);
   };
 </script>
 
