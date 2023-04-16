@@ -3,7 +3,6 @@
   import { version } from "../../library/version";
   import { clickOutside } from "../../library/clickOutside";
   import { navbarItems } from "../../data/navbarItems";
-  //import { exportFromDb } from "../../data/db";
   import NavbarItem from "./NavbarItem.svelte";
 
   import { modalOpen, modalTitle, modalAction } from "../../store/modalStore";
