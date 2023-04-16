@@ -1,3 +1,8 @@
+/**
+ * Service Worker
+ *
+ * Taken from https://www.learnsveltekit.com/service-workers-offline
+ */
 import { build, files, prerendered, version } from "$service-worker";
 
 // Generate unique ID for new cache

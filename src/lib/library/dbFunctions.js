@@ -3,7 +3,8 @@
  *
  * @description This function takes the indexed DB and
  * converts it to JSON, prepares a download link, and
- * opens the link for user download.
+ * opens the link for user download. The basics of this
+ * code was AI generated at https://chat.openai.com.
  *
  * @function backupIndexedDBDatabase
  *
@@ -77,8 +78,9 @@ export function backupIndexedDBDatabase(dbName, backupFileName) {
  * Process Uploaded JSON File
  *
  * @description Takes in a file upload event, reads the
- * file, and converts into JSON data
- * that can be read into an indexed DB database.
+ * file, and converts into JSON data that can be read
+ * into an indexed DB database. The basics of this code
+ * was AI generated at https://chat.openai.com.
  *
  * @function processUploadedJsonFile
  *
@@ -121,7 +123,8 @@ export function processUploadedJsonFile(fileInput, callback) {
  *
  * @description Takes in the database name and a json
  * file. Processes the JSON and inserts into the indexed
- * DB database.
+ * DB database. The basics of this code was AI generated
+ * at https://chat.openai.com.
  *
  * @function importDataToIndexedDBDatabase
  * @param {String} dbName indexed DB database name
@@ -129,9 +132,6 @@ export function processUploadedJsonFile(fileInput, callback) {
  * @returns {Promise} resolve or reject
  */
 export async function importDataToIndexedDBDatabase(dbName, jsonData) {
-  console.log(`dbName: ${dbName}`);
-  console.log(`jsonData: ${jsonData}`);
-
   return new Promise((resolve, reject) => {
     // Open the IndexedDB database
     const request = indexedDB.open(dbName);

@@ -18,7 +18,6 @@
   import { listItems } from "../../store/listItemStore";
   import { lists } from "../../store/listStore";
   import { notes } from "../../store/noteStore";
-  import ListItem from "../listItems/ListItem.svelte";
 
   let fileName;
 
