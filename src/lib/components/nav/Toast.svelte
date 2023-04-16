@@ -18,7 +18,7 @@
 </script>
 
 <div
-  class="fixed bottom-5 right-1 max-w-screen-sm rounded-lg border-2 border-x-8 px-5 py-4 drop-shadow-lg md:right-5
+  class="fixed bottom-10 right-10 max-w-screen-sm rounded-lg border-2 border-x-8 px-5 py-4 drop-shadow-lg
     {toastOn ? '' : 'hidden'} 
     {type === 'info' ? 'border-blue-500 bg-blue-200' : ''} 
     {type === 'error' ? 'border-rose-500 bg-rose-200' : ''}
