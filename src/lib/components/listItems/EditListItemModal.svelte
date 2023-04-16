@@ -14,6 +14,8 @@
 
   import { listItems } from "../../store/listItemStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   let loaded = false;
   let item;
 
@@ -53,6 +55,10 @@
     $modalItemId = "";
 
     lists.changeUpdatedAtDate(item[0].listId);
+
+    $showToast = true;
+    $toastType = "success";
+    $toastMessage = `${data.text} updated`;
   };
 </script>
 

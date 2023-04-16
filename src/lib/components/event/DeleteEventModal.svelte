@@ -13,6 +13,8 @@
   // Import Event Store
   import { events } from "../../store/eventStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   let loaded = false;
   let event;
 
@@ -38,6 +40,10 @@
     events.deleteEvent($modalItemId);
 
     $modalItemId = "";
+
+    $showToast = true;
+    $toastType = "success";
+    $toastMessage = `Event deleted`;
   };
 </script>
 

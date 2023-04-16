@@ -14,6 +14,8 @@
   import { notes } from "../../store/noteStore";
   import { categories } from "../../store/categoryStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   let loaded = false;
   let note;
 
@@ -53,6 +55,10 @@
     console.log(data);
     notes.editNote($modalItemId, data);
     $modalItemId = "";
+
+    $showToast = true;
+    $toastType = "success";
+    $toastMessage = `${data.title} updated`;
   };
 </script>
 

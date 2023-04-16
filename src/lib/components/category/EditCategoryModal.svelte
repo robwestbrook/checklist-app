@@ -12,6 +12,8 @@
 
   import { categories } from "../../store/categoryStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   let loaded = false;
   let category;
 
@@ -47,6 +49,10 @@
     e.target.reset();
     categories.editCategory($modalItemId, data);
     $modalItemId = "";
+
+    $showToast = true;
+    $toastType = "success";
+    $toastMessage = `${data.name} updated`;
   };
 </script>
 

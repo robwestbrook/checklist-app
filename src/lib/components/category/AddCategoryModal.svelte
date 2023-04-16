@@ -10,6 +10,8 @@
   // Import Category Store
   import { categories } from "../../store/categoryStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   /**
    * Handle Form Submit
    *
@@ -35,6 +37,10 @@
     }
     e.target.reset();
     categories.addCategory(data);
+
+    $showToast = true;
+    $toastType = "success";
+    $toastMessage = `${data.name} added`;
   };
 </script>
 

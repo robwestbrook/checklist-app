@@ -13,6 +13,8 @@
   // Import Event Store
   import { notes } from "../../store/noteStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   let loaded = false;
   let note;
 
@@ -38,6 +40,10 @@
     notes.deleteNote($modalItemId);
 
     $modalItemId = "";
+
+    $showToast = true;
+    $toastType = "success";
+    $toastMessage = `Note deleted`;
   };
 </script>
 

@@ -14,6 +14,8 @@
   import { lists } from "../../store/listStore";
   import { categories } from "../../store/categoryStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   let loaded = false;
   let list;
 
@@ -53,6 +55,10 @@
     console.log(data);
     lists.editList($modalItemId, data);
     $modalItemId = "";
+
+    $showToast = true;
+    $toastType = "success";
+    $toastMessage = `${data.title} updated`;
   };
 </script>
 

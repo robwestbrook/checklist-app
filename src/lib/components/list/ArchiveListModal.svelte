@@ -13,6 +13,8 @@
   // Import Event Store
   import { lists } from "../../store/listStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   let loaded = false;
   let list;
 
@@ -42,6 +44,12 @@
     });
 
     $modalItemId = "";
+
+    $showToast = true;
+    $toastType = "success";
+    $toastMessage = `${list[0].title} ${
+      !list[0].archived ? "archived" : "unarchived"
+    }`;
   };
 </script>
 

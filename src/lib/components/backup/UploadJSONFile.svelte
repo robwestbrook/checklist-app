@@ -19,6 +19,8 @@
   import { lists } from "../../store/listStore";
   import { notes } from "../../store/noteStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   let fileName;
 
   /**
@@ -42,6 +44,9 @@
     processUploadedJsonFile(e.target, async (error, json) => {
       if (error) {
         console.log("Error processing JSON file: ", error);
+        $showToast = true;
+        $toastType = "error";
+        $toastMessage = `${error}`;
       }
 
       try {
@@ -53,13 +58,19 @@
           await lists.restore();
           await notes.restore();
           console.log("Database restored");
-          alert("Database restored. Please refresh page.");
+
+          $showToast = true;
+          $toastType = "success";
+          $toastMessage = `Database restored. Please refresh page.`;
         } else {
           throw new Error(`Could not restore database`);
         }
       } catch (err) {
         console.log("Error restoring database: ", err);
-        alert("There was a problem. Please try again.");
+
+        $showToast = true;
+        $toastType = "error";
+        $toastMessage = `${err}`;
       }
     });
   };

@@ -14,6 +14,8 @@
   import { lists } from "../../store/listStore";
   import { listItems } from "../../store/listItemStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   let loaded = false;
   let list;
   let items;
@@ -45,6 +47,10 @@
     lists.deleteList($modalItemId);
 
     $modalItemId = "";
+
+    $showToast = true;
+    $toastType = "success";
+    $toastMessage = `List deleted`;
   };
 </script>
 

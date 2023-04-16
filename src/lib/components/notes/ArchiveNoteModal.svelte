@@ -13,6 +13,8 @@
   // Import Event Store
   import { notes } from "../../store/noteStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   let loaded = false;
   let note;
 
@@ -43,6 +45,12 @@
     });
 
     $modalItemId = "";
+
+    $showToast = true;
+    $toastType = "success";
+    $toastMessage = `${note[0].title} ${
+      !note[0].archived ? "archived" : "unarchived"
+    }`;
   };
 </script>
 

@@ -10,6 +10,8 @@
   // Import Event Store
   import { events } from "../../store/eventStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   /**
    * Handle Form Submit
    *
@@ -35,6 +37,10 @@
     }
     e.target.reset();
     events.addEvent(data);
+
+    $showToast = true;
+    $toastType = "success";
+    $toastMessage = `${data.title} added`;
   };
 </script>
 

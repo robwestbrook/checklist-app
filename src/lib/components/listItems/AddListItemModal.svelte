@@ -12,6 +12,8 @@
     modalTitle,
   } from "../../store/modalStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   let loaded = false;
   let list;
   let categoryName;
@@ -40,8 +42,9 @@
       data[key] = value;
     }
     e.target.reset();
+    let itemData;
     for (const item in data) {
-      let itemData = {
+      itemData = {
         text: data[item],
         listId: list[0].id,
         complete: false,
@@ -51,6 +54,10 @@
     $listItemAddIndex = 0;
 
     lists.changeUpdatedAtDate(list[0].id);
+
+    $showToast = true;
+    $toastType = "success";
+    $toastMessage = `${itemData["text"]} added`;
   };
 
   const handleAddClick = () => {

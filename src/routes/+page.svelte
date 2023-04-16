@@ -33,6 +33,8 @@
 
   import Footer from "../lib/components/nav/Footer.svelte";
 
+  import Toast from "../lib/components/nav/Toast.svelte";
+
   // Import Modal Stores
   import { modalOpen, modalAction } from "../lib/store/modalStore";
 </script>
@@ -91,4 +93,6 @@
   <ListContainer />
   <NoteContainer />
   <Footer />
+
+  <Toast />
 </div>

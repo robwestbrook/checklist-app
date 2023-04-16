@@ -11,6 +11,8 @@
   import { notes } from "../../store/noteStore";
   import { categories } from "../../store/categoryStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   /**
    * Handle Form Submit
    *
@@ -36,6 +38,10 @@
     }
     e.target.reset();
     notes.addNote(data);
+
+    $showToast = true;
+    $toastType = "success";
+    $toastMessage = `${data.title} added`;
   };
 </script>
 

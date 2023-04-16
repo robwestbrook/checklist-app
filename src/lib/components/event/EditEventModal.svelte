@@ -13,6 +13,8 @@
   // Import Event Store
   import { events } from "../../store/eventStore";
 
+  import { showToast, toastType, toastMessage } from "../../store/toastStore";
+
   let loaded = false;
   let event;
 
@@ -48,6 +50,10 @@
     e.target.reset();
     events.editEvent($modalItemId, data);
     $modalItemId = "";
+
+    $showToast = true;
+    $toastType = "success";
+    $toastMessage = `${data.title} updated`;
   };
 </script>
 
