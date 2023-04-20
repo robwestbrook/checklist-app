@@ -1,15 +1,20 @@
+import { it } from "vitest";
 import Navbar from "../components/nav/Navbar.svelte";
-import { render, fireEvent, screen } from "@testing-library/svelte";
-import userEvent from "@testing-library/user-event";
+import { cleanup, render, fireEvent, screen } from "@testing-library/svelte";
 
 describe("Navbar Component Tests", () => {
-  test("Should render Navbar", () => {
-    const rendered = render(Navbar);
-    expect(rendered).toBeTruthy();
-  });
-  test("Hamburger Menu Button", async () => {
-    render(Navbar);
+  afterEach(() => cleanup());
 
-    expect(Navbar.menuOpen).toBeTruthy();
+  it("mounts", () => {
+    const { container } = render(Navbar);
+    expect(container).toBeTruthy();
+  });
+
+  it("button opens menu", async () => {
+    render(Navbar);
+    const menuButton = screen.getByTestId("menu-button");
+    const div = screen.getAllByTestId("menu-div");
+    await fireEvent.click(menuButton);
+    expect(div).toContain(ul);
   });
 });

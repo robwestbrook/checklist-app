@@ -99,7 +99,7 @@
           on:click={handleMenuButton}
           use:clickOutside
           on:outclick={() => (menuOpen = false)}
-          name="menu-button"
+          data-testid="menu-button"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -118,6 +118,7 @@
         class="{menuOpen
           ? ''
           : 'hidden'} w-full lg:flex lg:w-auto lg:items-center lg:transition-none"
+        data-testid="menu-div"
       >
         <ul
           class="flex flex-col pt-4 text-base text-white lg:flex-row lg:justify-between lg:pt-2"
