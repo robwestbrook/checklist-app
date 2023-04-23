@@ -1,14 +1,9 @@
 <script>
   // Import Components
-  //import Navbar from "../lib/components/nav/Navbar.svelte";
   import CalendarContainer from "../lib/components/calendar/CalendarContainer.svelte";
   import Modal from "../lib/components/modal/Modal.svelte";
 
   import ListContainer from "../lib/components/list/ListContainer.svelte";
-  import AddListModal from "../lib/components/list/AddListModal.svelte";
-  import EditListModal from "../lib/components/list/EditListModal.svelte";
-  import ArchiveListModal from "../lib/components/list/ArchiveListModal.svelte";
-  import DeleteListModal from "../lib/components/list/DeleteListModal.svelte";
 
   import AddListItemModal from "../lib/components/listItems/AddListItemModal.svelte";
   import EditListItemModal from "../lib/components/listItems/EditListItemModal.svelte";
@@ -37,15 +32,7 @@
 <div>
   {#if modalOpen}
     <Modal>
-      {#if $modalAction === "addList"}
-        <AddListModal />
-      {:else if $modalAction === "editList"}
-        <EditListModal />
-      {:else if $modalAction === "archiveList"}
-        <ArchiveListModal />
-      {:else if $modalAction === "deleteList"}
-        <DeleteListModal />
-      {:else if $modalAction === "addListItem"}
+      {#if $modalAction === "addListItem"}
         <AddListItemModal />
       {:else if $modalAction === "editListItem"}
         <EditListItemModal />
@@ -65,7 +52,6 @@
     </Modal>
   {/if}
 
-  <!-- <Navbar /> -->
   <CalendarContainer />
   <ListContainer />
   <NoteContainer />

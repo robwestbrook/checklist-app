@@ -10,7 +10,6 @@
   $: message = $toastMessage;
 
   const closeToast = () => {
-    console.log("in closeToast");
     $showToast = false;
     $toastType = "";
     $toastMessage = "";
@@ -53,5 +52,14 @@
         </svg>
       </button>
     </span>
+  </div>
+  <div class="text-center">
+    <a href="/">
+      <button
+        on:click={closeToast}
+        class="text-sm text-slate-700 underline hover:text-black
+      ">back to home</button
+      >
+    </a>
   </div>
 </div>
