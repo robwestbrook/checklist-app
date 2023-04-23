@@ -133,6 +133,24 @@
               </span>
             </a>
           </li>
+          <li class="text-right">
+            <a href="/categories/add-category">
+              <span
+                class="block cursor-pointer rounded-lg p-2 hover:bg-white hover:text-fuchsia-700 md:p-4"
+              >
+                Add Category
+              </span>
+            </a>
+          </li>
+          <li class="text-right">
+            <a href="/categories/view-categories">
+              <span
+                class="block cursor-pointer rounded-lg p-2 hover:bg-white hover:text-fuchsia-700 md:p-4"
+              >
+                View Categories
+              </span>
+            </a>
+          </li>
           {#each navbarItems as item (item.id)}
             <NavbarItem {item} on:itemClicked={handleClick} />
           {/each}

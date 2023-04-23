@@ -4,11 +4,6 @@
   import CalendarContainer from "../lib/components/calendar/CalendarContainer.svelte";
   import Modal from "../lib/components/modal/Modal.svelte";
 
-  import AddCategoryModal from "../lib/components/category/AddCategoryModal.svelte";
-  import ViewCategoriesModal from "../lib/components/category/ViewCategoriesModal.svelte";
-  import EditCategoryModal from "../lib/components/category/EditCategoryModal.svelte";
-  import DeleteCategoryModal from "../lib/components/category/DeleteCategoryModal.svelte";
-
   import ListContainer from "../lib/components/list/ListContainer.svelte";
   import AddListModal from "../lib/components/list/AddListModal.svelte";
   import EditListModal from "../lib/components/list/EditListModal.svelte";
@@ -42,15 +37,7 @@
 <div>
   {#if modalOpen}
     <Modal>
-      {#if $modalAction === "addCategory"}
-        <AddCategoryModal />
-      {:else if $modalAction === "editCategory"}
-        <EditCategoryModal />
-      {:else if $modalAction === "deleteCategory"}
-        <DeleteCategoryModal />
-      {:else if $modalAction === "viewCategories"}
-        <ViewCategoriesModal />
-      {:else if $modalAction === "addList"}
+      {#if $modalAction === "addList"}
         <AddListModal />
       {:else if $modalAction === "editList"}
         <EditListModal />
