@@ -1,6 +1,6 @@
 <script></script>
 
-<div>
+<div class="grid h-screen place-items-center">
   <button
     disabled=""
     type="button"
@@ -8,7 +8,7 @@
   >
     <svg
       role="status"
-      class="mr-3 inline h-4 w-4 animate-spin text-white"
+      class="mr-3 inline h-8 w-8 animate-spin text-white"
       viewBox="0 0 100 101"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -22,6 +22,6 @@
         fill="currentColor"
       />
     </svg>
-    Loading...
+    <span class="text-xl">Loading...</span>
   </button>
 </div>

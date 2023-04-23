@@ -1,12 +1,8 @@
 <script>
   // Import Components
-  import Navbar from "../lib/components/nav/Navbar.svelte";
+  //import Navbar from "../lib/components/nav/Navbar.svelte";
   import CalendarContainer from "../lib/components/calendar/CalendarContainer.svelte";
   import Modal from "../lib/components/modal/Modal.svelte";
-
-  import AddEventModal from "../lib/components/event/AddEventModal.svelte";
-  import EditEventModal from "../lib/components/event/EditEventModal.svelte";
-  import DeleteEventModal from "../lib/components/event/DeleteEventModal.svelte";
 
   import AddCategoryModal from "../lib/components/category/AddCategoryModal.svelte";
   import ViewCategoriesModal from "../lib/components/category/ViewCategoriesModal.svelte";
@@ -46,13 +42,7 @@
 <div>
   {#if modalOpen}
     <Modal>
-      {#if $modalAction === "addEvent"}
-        <AddEventModal />
-      {:else if $modalAction === "editEvent"}
-        <EditEventModal />
-      {:else if $modalAction === "deleteEvent"}
-        <DeleteEventModal />
-      {:else if $modalAction === "addCategory"}
+      {#if $modalAction === "addCategory"}
         <AddCategoryModal />
       {:else if $modalAction === "editCategory"}
         <EditCategoryModal />
@@ -88,7 +78,7 @@
     </Modal>
   {/if}
 
-  <Navbar />
+  <!-- <Navbar /> -->
   <CalendarContainer />
   <ListContainer />
   <NoteContainer />

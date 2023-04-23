@@ -6,6 +6,7 @@
   import NavbarItem from "./NavbarItem.svelte";
 
   import { modalOpen, modalTitle, modalAction } from "../../store/modalStore";
+  import { addEventDate } from "../../store/eventDateStore";
 
   let menuOpen = false;
 
@@ -123,6 +124,15 @@
         <ul
           class="flex flex-col pt-4 text-base text-white lg:flex-row lg:justify-between lg:pt-2"
         >
+          <li class="text-right">
+            <a href="/events/add-event" on:click={() => ($addEventDate = null)}>
+              <span
+                class="block cursor-pointer rounded-lg p-2 hover:bg-white hover:text-fuchsia-700 md:p-4"
+              >
+                Add Event
+              </span>
+            </a>
+          </li>
           {#each navbarItems as item (item.id)}
             <NavbarItem {item} on:itemClicked={handleClick} />
           {/each}

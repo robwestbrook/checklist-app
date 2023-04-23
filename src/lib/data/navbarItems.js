@@ -6,7 +6,6 @@
  * and an  action to do when clicked.
  */
 export const navbarItems = [
-  { id: 1, label: "Add Event", action: "addEvent", params: null },
   { id: 2, label: "Add Note", action: "addNote", params: null },
   { id: 3, label: "Add List", action: "addList", params: null },
   { id: 4, label: "Add Category", action: "addCategory", params: null },
