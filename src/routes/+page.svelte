@@ -5,10 +5,6 @@
 
   import ListContainer from "../lib/components/list/ListContainer.svelte";
 
-  import AddListItemModal from "../lib/components/listItems/AddListItemModal.svelte";
-  import EditListItemModal from "../lib/components/listItems/EditListItemModal.svelte";
-  import DeleteListItemModal from "../lib/components/listItems/DeleteListItemModal.svelte";
-
   import NoteContainer from "../lib/components/notes/NoteContainer.svelte";
   import AddNoteModal from "../lib/components/notes/AddNoteModal.svelte";
   import EditNoteModal from "../lib/components/notes/EditNoteModal.svelte";
@@ -32,13 +28,7 @@
 <div>
   {#if modalOpen}
     <Modal>
-      {#if $modalAction === "addListItem"}
-        <AddListItemModal />
-      {:else if $modalAction === "editListItem"}
-        <EditListItemModal />
-      {:else if $modalAction === "deleteListItem"}
-        <DeleteListItemModal />
-      {:else if $modalAction === "addNote"}
+      {#if $modalAction === "addNote"}
         <AddNoteModal />
       {:else if $modalAction === "editNote"}
         <EditNoteModal />
