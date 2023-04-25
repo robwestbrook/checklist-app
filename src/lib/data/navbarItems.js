@@ -6,7 +6,6 @@
  * and an  action to do when clicked.
  */
 export const navbarItems = [
-  { id: 2, label: "Add Note", action: "addNote", params: null },
   {
     id: 6,
     label: "Backup Database",

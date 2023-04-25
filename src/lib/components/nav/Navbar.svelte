@@ -134,6 +134,15 @@
             </a>
           </li>
           <li class="text-right">
+            <a href="/notes/add-note">
+              <span
+                class="block cursor-pointer rounded-lg p-2 hover:bg-white hover:text-fuchsia-700 md:p-4"
+              >
+                Add Note
+              </span>
+            </a>
+          </li>
+          <li class="text-right">
             <a href="/lists/add-list">
               <span
                 class="block cursor-pointer rounded-lg p-2 hover:bg-white hover:text-fuchsia-700 md:p-4"

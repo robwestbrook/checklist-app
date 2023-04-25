@@ -80,28 +80,29 @@
         </div>
       </div>
       <div class="m-2 flex w-full justify-center">
-        <button
-          on:click={handleNewNoteClick}
-          class="flex flex-row items-center rounded-lg border-2 border-yellow-300 bg-black px-2 py-1 text-white hover:bg-yellow-300 hover:text-black"
-        >
-          <span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="2"
-              stroke="currentColor"
-              class="h-5 w-5"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M12 4.5v15m7.5-7.5h-15"
-              />
-            </svg>
-          </span>
-          <span class="text-bold ml-1"> add new note </span>
-        </button>
+        <a href="/notes/add-note">
+          <button
+            class="flex flex-row items-center rounded-lg border-2 border-yellow-300 bg-black px-2 py-1 text-white hover:bg-yellow-300 hover:text-black"
+          >
+            <span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="h-5 w-5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 4.5v15m7.5-7.5h-15"
+                />
+              </svg>
+            </span>
+            <span class="text-bold ml-1"> add new note </span>
+          </button>
+        </a>
       </div>
       <div
         class="container mx-auto grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-4"

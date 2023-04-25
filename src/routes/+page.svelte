@@ -6,10 +6,6 @@
   import ListContainer from "../lib/components/list/ListContainer.svelte";
 
   import NoteContainer from "../lib/components/notes/NoteContainer.svelte";
-  import AddNoteModal from "../lib/components/notes/AddNoteModal.svelte";
-  import EditNoteModal from "../lib/components/notes/EditNoteModal.svelte";
-  import ArchiveNoteModal from "../lib/components/notes/ArchiveNoteModal.svelte";
-  import DeleteNoteModal from "../lib/components/notes/DeleteNoteModal.svelte";
 
   import UploadJsonFile from "../lib/components/backup/UploadJSONFile.svelte";
 
@@ -28,15 +24,7 @@
 <div>
   {#if modalOpen}
     <Modal>
-      {#if $modalAction === "addNote"}
-        <AddNoteModal />
-      {:else if $modalAction === "editNote"}
-        <EditNoteModal />
-      {:else if $modalAction === "archiveNote"}
-        <ArchiveNoteModal />
-      {:else if $modalAction === "deleteNote"}
-        <DeleteNoteModal />
-      {:else if $modalAction === "uploadFile"}
+      {#if $modalAction === "uploadFile"}
         <UploadJsonFile />
       {/if}
     </Modal>
