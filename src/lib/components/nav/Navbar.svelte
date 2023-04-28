@@ -1,11 +1,5 @@
 <script>
-  import { backupIndexedDBDatabase } from "../../library/dbFunctions";
-  import { version } from "../../library/version";
   import { clickOutside } from "../../library/clickOutside";
-  import { navbarItems } from "../../data/navbarItems";
-  import NavbarItem from "./NavbarItem.svelte";
-
-  import { modalOpen, modalTitle, modalAction } from "../../store/modalStore";
   import { addEventDate } from "../../store/eventDateStore";
 
   let menuOpen = false;
@@ -33,31 +27,7 @@
    * @param {Object} e event object
    */
   const handleClick = async (e) => {
-    if (e.detail.params === "backup") {
-      console.log(e.detail.params);
-      try {
-        let backup = await backupIndexedDBDatabase(
-          version.dbName,
-          version.dbBackupName
-        );
-        if (backup) {
-          console.log("Backup created");
-          alert(
-            `Your database has been backed up as ${version.dbBackupName}. Download now`
-          );
-        } else {
-          throw new Error("failed to create backup");
-          alert(`There was a problem. Please try again.`);
-        }
-      } catch (err) {
-        console.error("Failed to create backup: ", err);
-      }
-    } else {
-      handleMenuButton();
-      $modalTitle = e.detail.label;
-      $modalAction = e.detail.action;
-      $modalOpen = !$modalOpen;
-    }
+    handleMenuButton();
   };
 </script>
 
@@ -169,9 +139,24 @@
               </span>
             </a>
           </li>
-          {#each navbarItems as item (item.id)}
-            <NavbarItem {item} on:itemClicked={handleClick} />
-          {/each}
+          <li class="text-right">
+            <a href="/system/backup">
+              <span
+                class="block cursor-pointer rounded-lg p-2 hover:bg-white hover:text-fuchsia-700 md:p-4"
+              >
+                Backup Database
+              </span>
+            </a>
+          </li>
+          <li class="text-right">
+            <a href="/system/restore">
+              <span
+                class="block cursor-pointer rounded-lg p-2 hover:bg-white hover:text-fuchsia-700 md:p-4"
+              >
+                Restore Database
+              </span>
+            </a>
+          </li>
         </ul>
       </div>
     </nav>
