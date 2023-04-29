@@ -7,8 +7,6 @@
 
   import NoteContainer from "../lib/components/notes/NoteContainer.svelte";
 
-  import UploadJsonFile from "../lib/components/backup/UploadJSONFile.svelte";
-
   import Footer from "../lib/components/nav/Footer.svelte";
 
   import Toast from "../lib/components/nav/Toast.svelte";
@@ -23,11 +21,7 @@
 
 <div>
   {#if modalOpen}
-    <Modal>
-      {#if $modalAction === "uploadFile"}
-        <UploadJsonFile />
-      {/if}
-    </Modal>
+    <Modal />
   {/if}
 
   <CalendarContainer />

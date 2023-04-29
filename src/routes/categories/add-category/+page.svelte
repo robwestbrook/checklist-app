@@ -18,18 +18,25 @@
    * @param {Object} e Event Object
    */
   const handleSubmit = (e) => {
-    const formData = new FormData(e.target);
-    let data = {};
-    for (let field of formData) {
-      const [key, value] = field;
-      data[key] = value;
-    }
-    e.target.reset();
-    categories.addCategory(data);
+    try {
+      const formData = new FormData(e.target);
+      let data = {};
+      for (let field of formData) {
+        const [key, value] = field;
+        data[key] = value;
+      }
+      e.target.reset();
+      categories.addCategory(data);
 
-    $showToast = true;
-    $toastType = "success";
-    $toastMessage = `${data.name} added`;
+      $showToast = true;
+      $toastType = "success";
+      $toastMessage = `${data.name} added`;
+    } catch (err) {
+      console.log(err);
+      $showToast = true;
+      $toastType = "error";
+      $toastMessage = `Error! ${err.message}`;
+    }
   };
 </script>
 

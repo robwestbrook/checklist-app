@@ -1,5 +1,6 @@
 <script>
-  import { listItems } from "../../store/listItemStore";
+  import { listItems } from "$lib/store/listItemStore";
+  import { lists } from "$lib/store/listStore";
 
   export let id;
 
@@ -12,6 +13,7 @@
       complete: !item[0].complete,
     };
     listItems.editItem(item[0].id, data);
+    lists.changeUpdatedAtDate(id);
   };
 </script>
 

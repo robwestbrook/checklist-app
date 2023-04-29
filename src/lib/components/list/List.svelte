@@ -4,7 +4,6 @@
   import Loading from "$lib/components/loading/Loading.svelte";
   import ListActions from "./ListActions.svelte";
   import ListItem from "../listItems/ListItem.svelte";
-  import { lists } from "$lib/store/listStore";
   import { listItems } from "$lib/store/listItemStore";
   import { categories } from "$lib/store/categoryStore";
   import { dateToNamedMonth } from "$lib/library/list";

@@ -78,7 +78,7 @@
             <input
               type="submit"
               class="mb-3 rounded-lg border border-fuchsia-700 bg-fuchsia-700 px-4 py-2 font-bold text-white hover:bg-fuchsia-500"
-              value="edit event"
+              value="edit category"
             />
             <a href="/">
               <button

@@ -166,7 +166,7 @@
             <input
               type="submit"
               class="my-3 rounded-lg border border-fuchsia-700 bg-fuchsia-700 px-4 py-2 font-bold text-white drop-shadow-lg hover:bg-fuchsia-500"
-              value="add event"
+              value="edit event"
             />
             <a href="/">
               <button
