@@ -68,6 +68,18 @@ const createCategoryStore = () => {
         set(categories);
       });
     },
+    checkForCategories: async () => {
+      try {
+        let categoriesExist = await db.categories.get(1);
+        if (categoriesExist) {
+          return true;
+        } else {
+          return false;
+        }
+      } catch (err) {
+        return null;
+      }
+    },
   };
 };
 

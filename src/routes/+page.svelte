@@ -1,4 +1,5 @@
 <script>
+  import { browser } from "$app/environment";
   // Import Components
   import CalendarContainer from "../lib/components/calendar/CalendarContainer.svelte";
   import Modal from "../lib/components/modal/Modal.svelte";
@@ -13,6 +14,30 @@
 
   // Import Modal Stores
   import { modalOpen, modalAction } from "../lib/store/modalStore";
+
+  import { categories } from "$lib/store/categoryStore";
+
+  /**
+   * Initial Category Check
+   *
+   * @description Checks for existing categories. If a
+   * category exists, the app has been used. If not, it's
+   * a new app use. Create a default 'home' category.
+   */
+  const initialCategoryCheck = async () => {
+    if (browser) {
+      let categoriesExist = await categories.checkForCategories();
+      if (!categoriesExist) {
+        try {
+          await categories.addCategory({ name: "home" });
+        } catch (err) {
+          console.log(err);
+        }
+      }
+    }
+  };
+
+  initialCategoryCheck();
 </script>
 
 <svelte:head>
