@@ -29,9 +29,16 @@
    * method, passing in the event ID
    * @function handleClick
    */
-  const handleClick = () => {
-    categories.deleteCategory(id);
-    goto("/");
+  const handleClick = async () => {
+    try {
+      categories.deleteCategory(id);
+      goto("/");
+    } catch (err) {
+      console.log(err);
+      $showToast = true;
+      $toastType = "error";
+      $toastMessage = `Error! ${err.message}`;
+    }
   };
 </script>
 

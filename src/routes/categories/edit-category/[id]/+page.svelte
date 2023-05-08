@@ -41,11 +41,19 @@
       data[key] = value;
     }
     e.target.reset();
-    categories.editCategory(id, data);
 
-    $showToast = true;
-    $toastType = "success";
-    $toastMessage = `${data.name} updated`;
+    try {
+      categories.editCategory(id, data);
+
+      $showToast = true;
+      $toastType = "success";
+      $toastMessage = `${data.name} updated`;
+    } catch (err) {
+      console.log(err);
+      $showToast = true;
+      $toastType = "error";
+      $toastMessage = `Error! ${err.message}`;
+    }
   };
 </script>
 

@@ -1,28 +1,6 @@
 <script>
   // Import Category Store
   import { categories } from "$lib/store/categoryStore";
-
-  /**
-   * Handle Edit Cateogry Click
-   *
-   * @description Takes in the category ID and sets the modal
-   * stores values
-   *
-   * @function handleEditCategoryClick
-   * @param {String} id event ID
-   */
-  const handleEditCateogryClick = (id) => {};
-
-  /**
-   * Handle Delete Category Click
-   *
-   * @description Takes in the category ID and sets the
-   * modal stores values
-   *
-   * @function handleDeleteCategoryClick
-   * @param {String} id event ID
-   */
-  const handleDeleteCategoryClick = (id) => {};
 </script>
 
 <div class="container mx-auto my-3 w-full">
