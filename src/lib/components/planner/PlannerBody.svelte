@@ -1,5 +1,6 @@
 <script>
   import PlannerEvent from "./PlannerEvent.svelte";
+  import Tooltip from "../nav/Tooltip.svelte";
   import { events } from "../../store/eventStore";
   import { addEventDate } from "../../store/eventDateStore";
   import {
@@ -110,8 +111,13 @@
     </div>
     <div class="flex w-1/12 flex-col items-center border-l border-neutral-400">
       <div class="my-auto p-2">
-        <a href="/events/add-event">
-          <button on:click={() => ($addEventDate = day.date)}>
+        <a href="/events/add-event" class="group relative">
+          <Tooltip
+            message="Add event for {day.month.slice(0, 3)} {day.date.split(
+              '-'
+            )[2]}, {day.year}"
+          />
+          <button on:touchstart on:click={() => ($addEventDate = day.date)}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 512 512"
