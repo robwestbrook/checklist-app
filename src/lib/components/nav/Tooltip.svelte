@@ -1,9 +1,26 @@
 <script>
   export let message;
+  export let topOrBottom;
+  export let leftOrRight;
+
+  let x = "";
+  let y = "";
+
+  if (topOrBottom === "top") {
+    x = "-top-12";
+  } else {
+    x = "top-7";
+  }
+
+  if (leftOrRight === "left") {
+    y = "-left-24";
+  } else {
+    y = "left-0";
+  }
 </script>
 
 <span
-  class="absolute -left-5 -top-2 hidden w-24 -translate-y-full rounded-lg bg-gray-700 px-2 py-1 text-center text-sm text-white after:absolute after:left-1/2 after:top-[100%] after:-translate-x-1/2 after:border-8 after:border-x-transparent after:border-b-transparent after:border-t-gray-700 after:content-[''] group-hover:flex"
+  class="z-100 invisible absolute {y} {x} w-36 max-w-xs space-y-1 rounded-lg bg-gray-900 px-4 py-2 text-xs font-semibold text-gray-50 opacity-80 shadow-lg group-hover:visible"
 >
   {message}
 </span>

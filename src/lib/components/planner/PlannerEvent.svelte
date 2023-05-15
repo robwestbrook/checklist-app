@@ -1,5 +1,6 @@
 <script>
   import ViewEvent from "../event/ViewEvent.svelte";
+  import Tooltip from "../nav/Tooltip.svelte";
   export let event;
 
   /**
@@ -31,9 +32,11 @@
   <div class="flex flex-row items-center">
     <div class="pr-1 md:pr-3">
       <button
+        on:touchstart
         on:click={() => handleViewEventClick(event.id)}
-        class="rounded-lg p-1 hover:bg-blue-300"
+        class="group relative rounded-lg p-1 hover:bg-blue-300"
       >
+        <Tooltip topOrBottom="top" leftOrRight="right" message="view event" />
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 24 24"
@@ -54,7 +57,11 @@
     </div>
     <div class="pr-1 md:pr-3">
       <a href="/events/edit-event/{event.id}">
-        <button class="rounded-lg p-1 hover:bg-green-300">
+        <button
+          on:touchstart
+          class="group relative rounded-lg p-1 hover:bg-green-300"
+        >
+          <Tooltip topOrBottom="top" leftOrRight="right" message="edit event" />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -71,7 +78,15 @@
     </div>
     <div class="pr-1 md:pr-3">
       <a href="/events/delete-event/{event.id}">
-        <button class="rounded-lg p-1 hover:bg-rose-300">
+        <button
+          on:touchstart
+          class="group relative rounded-lg p-1 hover:bg-rose-300"
+        >
+          <Tooltip
+            topOrBottom="top"
+            leftOrRight="right"
+            message="delete event"
+          />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
