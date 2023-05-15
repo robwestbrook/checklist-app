@@ -17,16 +17,17 @@
    * @function handleSubmit
    * @param {Object} e Event Object
    */
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
+    const formData = new FormData(e.target);
+    let data = {};
+    for (let field of formData) {
+      const [key, value] = field;
+      data[key] = value;
+    }
+    e.target.reset();
+
     try {
-      const formData = new FormData(e.target);
-      let data = {};
-      for (let field of formData) {
-        const [key, value] = field;
-        data[key] = value;
-      }
-      e.target.reset();
-      categories.addCategory(data);
+      await categories.addCategory(data);
 
       $showToast = true;
       $toastType = "success";

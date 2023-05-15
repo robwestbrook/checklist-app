@@ -18,7 +18,7 @@
    * @function handleSubmit
    * @param {Object} e Event Object
    */
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     const formData = new FormData(e.target);
     let data = {};
     for (let field of formData) {
@@ -26,11 +26,17 @@
       data[key] = value;
     }
     e.target.reset();
-    events.addEvent(data);
 
-    $showToast = true;
-    $toastType = "success";
-    $toastMessage = `${data.title} added`;
+    try {
+      await events.addEvent(data);
+      $showToast = true;
+      $toastType = "success";
+      $toastMessage = `${data.title} added`;
+    } catch (err) {
+      $showToast = true;
+      $toastType = "error";
+      $toastMessage = `Error! ${err.message}`;
+    }
   };
 </script>
 

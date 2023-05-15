@@ -33,7 +33,7 @@
    * @function handleSubmit
    * @param {Object} e Event Object
    */
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     const formData = new FormData(e.target);
     let data = {};
     for (let field of formData) {
@@ -43,7 +43,7 @@
     e.target.reset();
 
     try {
-      categories.editCategory(id, data);
+      await categories.editCategory(id, data);
 
       $showToast = true;
       $toastType = "success";

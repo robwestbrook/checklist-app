@@ -10,6 +10,8 @@
 
   import { events } from "$lib/store/eventStore";
 
+  import { showToast, toastType, toastMessage } from "$lib/store/toastStore";
+
   let loading = false;
   let id = parseInt($page.params.id);
   let event;
@@ -28,8 +30,14 @@
    * @function handleSubmit
    */
   const handleClick = async () => {
-    await events.deleteEvent(id);
-    goto("/");
+    try {
+      await events.deleteEvent(id);
+      goto("/");
+    } catch (err) {
+      $showToast = true;
+      $toastType = "error";
+      $toastMessage = `Error! ${err.message}`;
+    }
   };
 </script>
 

@@ -31,7 +31,7 @@
    */
   const handleClick = async () => {
     try {
-      categories.deleteCategory(id);
+      await categories.deleteCategory(id);
       goto("/");
     } catch (err) {
       console.log(err);
